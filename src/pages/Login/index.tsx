@@ -1,8 +1,12 @@
 import React from 'react'
-
+import * as C from './style'
 const Login = () => {
   return (
-    <div>login</div>
+    <C.Container>
+      <C.ContainerLogin>
+        
+      </C.ContainerLogin>
+    </C.Container>
   )
 }
 

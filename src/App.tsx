@@ -2,7 +2,7 @@ import { useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import router from "./routes";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
 
 const GlobalStyle = createGlobalStyle`
   *{

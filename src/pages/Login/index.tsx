@@ -2,12 +2,12 @@ import React, { useRef } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import userServices from "../../services/User";
 import * as C from "./style";
-import { redirect } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-useQuery;
 const Login = () => {
   const email = useRef("");
   const password = useRef("");
+  const navigate = useNavigate();
   const handleSubmit = async () => await userServices.login({
       email: email.current,
       password: password.current,
@@ -22,6 +22,10 @@ const Login = () => {
       console.log(response.data);
     },
   });
+  React.useEffect(() => {
+    const token = localStorage.getItem('english-token')
+    token && navigate('/') 
+  }, [])
   return (
     <C.Container>
       <C.ContainerLogin>

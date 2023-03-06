@@ -1,13 +1,17 @@
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import userServices from "../../services/User";
 import * as C from "./style";
 useQuery
 const Login = () => {
-  const { data } = useQuery({
-    queryKey: ['login'],
-    queryFn: ()=>  userServices.login({email:"williamnmiranda@gmaill.com",password:"123"}),
-  })
+  const mutationLogin = useMutation(
+   ()=> userServices.login({email:"williamnmiranda@gmaill.com",password:"1243"}),
+   {
+    onError : ({ response })=>{
+      console.log(response.data)
+    }
+   }
+  )
   return (
     <C.Container>
       <C.ContainerLogin>
@@ -22,7 +26,7 @@ const Login = () => {
           <C.Input />
         </C.Field>
 
-        <C.ButtonSubmit>ENTRAR</C.ButtonSubmit>
+        <C.ButtonSubmit onClick={()=> mutationLogin.mutate()}>ENTRAR</C.ButtonSubmit>
 
         <C.RecoverPassword>Recuperar minha senha</C.RecoverPassword>
       </C.ContainerLogin>

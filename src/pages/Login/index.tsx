@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import userServices from "../../services/User";
 import * as C from "./style";
+import { redirect } from "react-router-dom";
+import { toast } from "react-toastify";
 useQuery;
 const Login = () => {
   const email = useRef("");
@@ -12,7 +14,9 @@ const Login = () => {
     });
   const mutationLogin = useMutation(handleSubmit, {
     onSuccess: (data) => {
-      console.log(data);
+      localStorage.setItem('english-token',data.token)
+      toast.error("Lorem ipsum dolor")
+      redirect("/");
     },
     onError: ({ response }) => {
       console.log(response.data);

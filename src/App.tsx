@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { RouterProvider } from 'react-router-dom'
-import { createGlobalStyle } from 'styled-components'
-import router from './routes'
-
+import { useState } from "react";
+import { RouterProvider } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+import router from "./routes";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -10,16 +10,15 @@ const GlobalStyle = createGlobalStyle`
     padding: 0px;
     box-sizing: border-box;
   }
-`
+`;
 function App() {
-  const [count, setCount] = useState(0)
-
+  const queryClient = new QueryClient()
   return (
-    <>
-    <GlobalStyle />
-    <RouterProvider router={router} />
-    </>
-  )
+    <QueryClientProvider client={queryClient}>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
-export default App
+export default App;

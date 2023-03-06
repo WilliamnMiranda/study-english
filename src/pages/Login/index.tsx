@@ -1,6 +1,13 @@
 import React from "react";
+import { useQuery } from "react-query";
+import userServices from "../../services/User";
 import * as C from "./style";
+useQuery
 const Login = () => {
+  const { data } = useQuery({
+    queryKey: ['login'],
+    queryFn: ()=>  userServices.login({email:"williamnmiranda@gmaill.com",password:"123"}),
+  })
   return (
     <C.Container>
       <C.ContainerLogin>

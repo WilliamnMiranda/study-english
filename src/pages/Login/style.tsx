@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import backgroundImage from "../../assets/background.svg";
+import backgroundImageMobile from "../../assets/background_mobile.svg";
 export const Container = styled.main`
   height: 100vh;
   width: 100%;
@@ -12,6 +13,12 @@ export const Container = styled.main`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;
+
+  @media(max-width : 800px){
+    background-size: cover;
+    background-position: top bottom;
+    background-image: url(${backgroundImageMobile});
+  }
 `;
 
 export const ContainerLogin = styled.section`
@@ -21,6 +28,10 @@ export const ContainerLogin = styled.section`
   border-radius: 4px;
   padding: 40px 50px;
   color: #333333;
+
+  @media(max-width : 800px){
+    width: 85%;
+  }
 `;
 export const TextWelcome = styled.span`
   font-size: 0.8em;

@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import Aside from "../Aside";
 import * as C from "./style";
 
 interface IProps {
@@ -7,6 +8,7 @@ interface IProps {
 const Layout = ({ children }: IProps) => {
   return (
     <C.Container>
+      <Aside />
       <C.Page>{children}</C.Page>
     </C.Container>
   );

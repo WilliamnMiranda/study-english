@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { Navigate, useNavigate } from "react-router-dom";
 import userServices from '../../services/User';
+import Layout from '../layout';
 
 interface IProps {
   element: FunctionComponent
@@ -23,7 +24,11 @@ const PrivateRoute = ({element:Element}: IProps) => {
   React.useEffect(() => {
     authenticateUser()
   }, [])
-  return <Element />
+  return (
+    <Layout>
+      <Element />
+    </Layout>
+  )
 }
 
 export default PrivateRoute

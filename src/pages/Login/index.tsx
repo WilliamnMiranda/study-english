@@ -16,7 +16,9 @@ const Login = () => {
     onSuccess: (data) => {
       localStorage.setItem('english-token',data.token)
       toast.error("Lorem ipsum dolor")
-      redirect("/");
+      setTimeout(() => {
+        navigate('/')
+      }, 7000);
     },
     onError: ({ response }) => {
       console.log(response.data);

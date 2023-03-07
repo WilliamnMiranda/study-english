@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerAside = styled.aside`
-  width: 300px;
+  width: 350px;
   height: 100vh;
   background-color: #303f56;
   padding:20px;

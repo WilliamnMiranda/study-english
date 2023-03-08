@@ -5,6 +5,7 @@ export const ContainerCollection = styled.div`
   align-items: center;
   gap: 15px;
   color: white;
+  margin-bottom: 20px;
 `;
 export const ImageCollection = styled.div`
   display: flex;
@@ -12,6 +13,9 @@ export const ImageCollection = styled.div`
   justify-content: center;
   width: 45px;
   height: 45px;
+  font-family: 'Mulish' , sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
   background-color: rgba(213, 145, 176, 0.8);
 `;
 export const ContainerInfosCollection = styled.div`

@@ -1,15 +1,20 @@
 import React from "react";
-import ProgressBar  from "../../../progress_bar";
-import * as C from './style'
-const Collection = () => {
+import { ICollection } from "../../../../interfaces/collections_interface";
+import ProgressBar from "../../../progress_bar";
+import * as C from "./style";
+
+interface IProps {
+  collection: ICollection
+}
+const Collection = ({collection} : IProps) => {
   return (
     <C.ContainerCollection>
-      <C.ImageCollection> image </C.ImageCollection>
+      <C.ImageCollection> {collection.name[0]} </C.ImageCollection>
       <C.ContainerInfosCollection>
         <C.TittleCollection>
           <C.IconVerify> </C.IconVerify>
-          VEC - Biologia
-          </C.TittleCollection>
+          {collection.name}
+        </C.TittleCollection>
         <ProgressBar />
       </C.ContainerInfosCollection>
     </C.ContainerCollection>

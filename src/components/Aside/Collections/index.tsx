@@ -1,6 +1,7 @@
 import React from "react";
 import * as C from "./style";
 import { AiOutlineSearch,AiOutlinePlus } from "react-icons/ai";
+import Collection from "./Collection";
 const Collections = () => {
   return (
     <C.ContainerCollection>
@@ -11,6 +12,10 @@ const Collections = () => {
           <C.ButtonSearchCollection> <AiOutlineSearch /> </C.ButtonSearchCollection>
         </C.ContainerOptionsCollection>
       </C.HeaderSearch>
+
+      <C.ContainerCollections>
+        <Collection />
+      </C.ContainerCollections>
     </C.ContainerCollection>
   );
 };

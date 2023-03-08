@@ -27,3 +27,4 @@ export const ContainerOptionsCollection = styled.div`
 `
 export const ButtonAddCollection = styled.div``
 export const ButtonSearchCollection = styled.div``
+export const ContainerCollections = styled.div``

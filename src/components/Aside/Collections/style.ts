@@ -14,6 +14,7 @@ export const HeaderSearch = styled.div`
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   font-size: 0.8em;
+  margin-bottom: 5px;
 `;
 
 export const ContainerOptionsCollection = styled.div`

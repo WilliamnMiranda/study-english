@@ -6,9 +6,11 @@ const Collection = () => {
     <C.ContainerCollection>
       <C.ImageCollection> image </C.ImageCollection>
       <C.ContainerInfosCollection>
-        <C.TittleCollection>Tittle</C.TittleCollection>
+        <C.TittleCollection>
+          <C.IconVerify> </C.IconVerify>
+          VEC - Biologia
+          </C.TittleCollection>
         <ProgressBar />
-
       </C.ContainerInfosCollection>
     </C.ContainerCollection>
   );

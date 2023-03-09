@@ -8,7 +8,8 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { CollectionProvider } from "./contexts/Collection_Context";
 const GlobalStyle = createGlobalStyle`
   *{
     margin:0px;
@@ -20,21 +21,23 @@ function App() {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
-      <GlobalStyle />
-      <RouterProvider router={router} />
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        limit={0}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      <CollectionProvider>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+        <ToastContainer
+          position="top-right"
+          autoClose={1000}
+          limit={0}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </CollectionProvider>
     </QueryClientProvider>
   );
 }

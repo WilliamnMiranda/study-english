@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { CollectionContext } from './../contexts/Collection_Context';
+import { useContext } from 'react';
 const useCollection = () => {
 
-  const [currentCollection,setCurrentCollection] = useState<string>('640911bbbe55e76e3027f105')
+  const { activeCollection,setActiveCollection } = useContext(CollectionContext)
   const changeCollection = (_id : string) => {
-    if(_id === currentCollection) return
-      setCurrentCollection(_id)
+    if(_id === activeCollection) return
+    setActiveCollection(_id)
   }
   return {
-    currentCollection
+    activeCollection,
+    changeCollection
   }
 }
 

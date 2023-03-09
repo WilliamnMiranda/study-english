@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface IActive {
-  activeCollection: boolean;
+  currentCollection: boolean;
 }
 export const ContainerCollection = styled.div<IActive>`
   display: flex;
@@ -10,8 +10,8 @@ export const ContainerCollection = styled.div<IActive>`
   color: white;
   margin-bottom: 20px;
   cursor: pointer;
-  ${({ activeCollection }) =>
-    activeCollection &&
+  ${({ currentCollection }) =>
+    currentCollection &&
     css`
       ::before {
         content: "";
@@ -19,10 +19,12 @@ export const ContainerCollection = styled.div<IActive>`
         left: 0;
         width: 7px;
         height: 45px;
-        background-color: red;
-        transition: .1s;
+        background-color: white;
       }
     `};
+    p{
+      color: ${({currentCollection}) =>currentCollection ? 'white' : '#989FAB'}
+    }
 `;
 export const ImageCollection = styled.div`
   display: flex;
@@ -41,7 +43,7 @@ export const ContainerInfosCollection = styled.div`
   gap: 5px;
   width: 75%;
 `;
-export const TittleCollection = styled.div`
+export const TittleCollection = styled.p`
   font-family: "Poppins", sans-serif;
   font-size: 0.7em;
   font-weight: bold;

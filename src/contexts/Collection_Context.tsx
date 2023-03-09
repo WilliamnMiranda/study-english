@@ -7,12 +7,12 @@ interface CollectionContextType {
   setActiveCollection: React.Dispatch<SetStateAction<string>>;
 }
 
-export const AuthContext = createContext({} as CollectionContextType);
-export const AuthProvider = ({ children }: IProps) => {
+export const CollectionContext = createContext({} as CollectionContextType);
+export const CollectionProvider = ({ children }: IProps) => {
   const [activeCollection, setActiveCollection] = useState<string>('');
   return (
-    <AuthContext.Provider value={{setActiveCollection,activeCollection}}>
+    <CollectionContext.Provider value={{setActiveCollection,activeCollection}}>
       {children}
-    </AuthContext.Provider>
+    </CollectionContext.Provider>
   );
 };

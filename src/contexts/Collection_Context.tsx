@@ -3,7 +3,7 @@ interface IProps {
   children: ReactNode;
 }
 interface CollectionContextType {
-  activeCollection: string | undefined;
+  activeCollection: string;
   setActiveCollection: React.Dispatch<SetStateAction<string>>;
 }
 

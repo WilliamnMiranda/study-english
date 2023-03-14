@@ -6,6 +6,6 @@ export const Container = styled.div`
 
 export const Page = styled.section`
   width: 100%;
-  background-color: pink;
+  background-color: white;
   padding: 15px;
 `;

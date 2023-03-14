@@ -16,7 +16,10 @@ const HeaderHome = ({ infos }: IProps) => {
             {infos.abbreviation} - {infos.name} <C.Icon src={iconEdit} />
           </C.NameCollection>
           <C.TextOfCompletedAndIncompleteTasks>
-            {`${infos.completedCards} de ${infos.totalTasksInCards} cards completos`}
+            <C.TextBoldItem>{infos.completedCards} </C.TextBoldItem>
+            de
+            <C.TextBoldItem> {infos.totalTasksInCards} </C.TextBoldItem>
+            cards concluidos
           </C.TextOfCompletedAndIncompleteTasks>
           <C.ContainerOptionsInfos>
             <C.Icon src={iconSvg} />

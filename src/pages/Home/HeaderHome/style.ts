@@ -4,37 +4,49 @@ export const ContainerHeaderInfo = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px;
-  height: 120px;
+  padding: 70px 40px;
+  height: 140px;
+  font-family: "Mulish", sans-serif;
 `;
 export const LogoInfo = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.0em;
-  height: 120px;
-  width: 120px;
-  background-color: chartreuse;
+  font-size: 5em;
+  height: 140px;
+  width: 140px;
+  background-color: thistle;
 `;
 export const ContainerInfos = styled.section`
   display: flex;
-  gap:30px;
+  gap: 30px;
 `;
 export const ContainerAllInfos = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`
+`;
 export const ContainerGraphic = styled.section``;
 export const NameCollection = styled.div`
+  display: flex;
+  gap:10px;
+  align-items: center;
   font-weight: bold;
   font-size: 2.5em;
   font-family: "Poppins", sans-serif;
   color: #34779b;
   text-transform: uppercase;
 `;
-export const TextOfCompletedAndIncompleteTasks = styled.p``;
+export const TextOfCompletedAndIncompleteTasks = styled.p`
+  color: #bbc2c8;
+  font-weight: 500;
+  font-size: 0.9em;
+`;
 
+export const TextBoldItem = styled.span`
+  color: #3da4da;
+  font-weight: bold;
+`;
 export const Icon = styled.img`
   width: 20px;
   height: 20px;
@@ -43,7 +55,7 @@ export const Icon = styled.img`
 export const ContainerOptionsInfos = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 `;
 
 export const ButtonStart = styled.button`
@@ -54,7 +66,7 @@ export const ButtonStart = styled.button`
   border: none;
   outline: none;
   color: white;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
   font-weight: 300;
   text-transform: uppercase;
   font-family: monospace;
@@ -63,6 +75,9 @@ export const Share = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  color: #3da4da;
+  font-weight: 500;
+  font-size: 0.9em;
 `;
 export const MoreOptions = styled.div`
   display: flex;

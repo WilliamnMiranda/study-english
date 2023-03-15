@@ -26,7 +26,11 @@ export const ContainerAllInfos = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-export const ContainerGraphic = styled.section``;
+export const ContainerGraphic = styled.section`
+  height: 140px;
+  display: flex;
+  align-items: center;
+`;
 export const NameCollection = styled.div`
   display: flex;
   gap:10px;

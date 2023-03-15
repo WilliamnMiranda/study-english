@@ -3,10 +3,13 @@ import iconSvg from "../../../assets/config.svg";
 import iconShare from "../../../assets/share.svg";
 import iconEdit from "../../../assets/edit.svg";
 import { IInfos } from "../../../interfaces/collections_interface";
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 interface IProps {
   infos: IInfos;
 }
 const HeaderHome = ({ infos }: IProps) => {
+ const percentage = Math.floor(infos.completedCards / infos.totalTasksInCards * 100)
   return (
     <C.ContainerHeaderInfo>
       <C.ContainerInfos>
@@ -35,7 +38,12 @@ const HeaderHome = ({ infos }: IProps) => {
           </C.ContainerOptionsInfos>
         </C.ContainerAllInfos>
       </C.ContainerInfos>
-      <C.ContainerGraphic> </C.ContainerGraphic>
+      <C.ContainerGraphic> 
+        <CircularProgressbar
+        strokeWidth={10} 
+        styles={
+         {root: {height: '110px'}}
+         } value={infos.completedCards} maxValue={infos.totalTasksInCards} text={`${percentage}%`} /> </C.ContainerGraphic>
     </C.ContainerHeaderInfo>
   );
 };

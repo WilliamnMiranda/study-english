@@ -11,6 +11,8 @@ interface IProps {
 const HeaderHome = ({ infos }: IProps) => {
   const { completedCards, totalTasksInCards } = infos
   const percentage = completedCards ? totalTasksInCards ? Math.floor(completedCards / totalTasksInCards * 100) : 0 : 0
+  console.log(totalTasksInCards)
+  console.log(completedCards)
   return (
     <C.ContainerHeaderInfo>
       <C.ContainerInfos>
@@ -44,7 +46,7 @@ const HeaderHome = ({ infos }: IProps) => {
           strokeWidth={10}
           styles={
             { root: { height: '110px' } }
-          } value={infos.completedCards} maxValue={infos.totalTasksInCards} text={`${percentage}%`} /> </C.ContainerGraphic>
+          } value={percentage} maxValue={100} text={`${percentage}%`} /> </C.ContainerGraphic>
     </C.ContainerHeaderInfo>
   );
 };

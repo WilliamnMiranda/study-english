@@ -9,7 +9,8 @@ interface IProps {
   infos: IInfos;
 }
 const HeaderHome = ({ infos }: IProps) => {
- const percentage = Math.floor(infos.completedCards / infos.totalTasksInCards * 100)
+  const { completedCards, totalTasksInCards } = infos
+  const percentage = completedCards ? totalTasksInCards ? Math.floor(completedCards / totalTasksInCards * 100) : 0 : 0
   return (
     <C.ContainerHeaderInfo>
       <C.ContainerInfos>
@@ -38,12 +39,12 @@ const HeaderHome = ({ infos }: IProps) => {
           </C.ContainerOptionsInfos>
         </C.ContainerAllInfos>
       </C.ContainerInfos>
-      <C.ContainerGraphic> 
+      <C.ContainerGraphic>
         <CircularProgressbar
-        strokeWidth={10} 
-        styles={
-         {root: {height: '110px'}}
-         } value={infos.completedCards} maxValue={infos.totalTasksInCards} text={`${percentage}%`} /> </C.ContainerGraphic>
+          strokeWidth={10}
+          styles={
+            { root: { height: '110px' } }
+          } value={infos.completedCards} maxValue={infos.totalTasksInCards} text={`${percentage}%`} /> </C.ContainerGraphic>
     </C.ContainerHeaderInfo>
   );
 };

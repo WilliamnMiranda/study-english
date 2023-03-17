@@ -1,20 +1,26 @@
 import React from 'react'
 import * as C from './style'
-
+import EmptyImage from '../../../assets/empty.svg'
+import { IDecks } from '../../../interfaces/decks_interfaces'
+import Deck from './Deck'
 interface IProps {
-  decks: [{
-    cards: [],
-    name: string,
-    code: string,
-    collection_name: string,
-    _id: string,
-    user: string
-  }]
+  decks: IDecks[]
 }
+
+const EmptyCards = () => {
+  return (
+    <C.ContainerEmpty>
+      <img src={EmptyImage} />
+      <p>Voce nao possui nenhum cartao criado</p>
+      <button> Criar um Deck</button>
+    </C.ContainerEmpty>
+  )
+}
+
 const Decks = ({ decks }: IProps) => {
   return (
     <C.ContainerDecks>
-      {decks.length > 0 ? decks.map((item) => <div> a </div>) : <div>nada</div>}
+      {decks.length > 0 ? decks.map((deck: IDecks) => <Deck deck={deck} />) : <EmptyCards />}
     </C.ContainerDecks>
   )
 }

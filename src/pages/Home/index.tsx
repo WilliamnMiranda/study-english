@@ -6,7 +6,7 @@ import collectionServices from "../../services/Collection";
 import decksServices from "../../services/Decks";
 import Decks from "./Decks";
 import HeaderHome from "./HeaderHome";
-
+import LoadingImage from '../../assets/loading.gif'
 const Home = () => {
   const { activeCollection } = useContext(CollectionContext);
   const [info, setInfo] = useState<IInfos | null>(null);
@@ -29,12 +29,12 @@ const Home = () => {
     }
   }, [activeCollection]);
   return (
-    decks.data !== undefined && info ? (
-      <div>
-        <HeaderHome infos={info} />
-        <Decks decks={decks.data} />
-      </div>
-    ) : <div>loading</div>
+    decks.data !== undefined && info &&
+    <div>
+      <HeaderHome infos={info} />
+      <Decks decks={decks.data} />
+    </div>
+
   );
 };
 

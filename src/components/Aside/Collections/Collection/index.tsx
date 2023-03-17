@@ -21,7 +21,7 @@ const Collection = ({ collection }: IProps) => {
           <C.IconVerify> </C.IconVerify>
           {collection.abbreviation} - {collection.name}
         </C.TittleCollection>
-        <ProgressBar currentCollection={currentCollection}/>
+        <ProgressBar currentCollection={currentCollection} progress={20} />
       </C.ContainerInfosCollection>
     </C.ContainerCollection>
   );

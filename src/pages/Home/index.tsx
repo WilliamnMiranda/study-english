@@ -10,7 +10,7 @@ import HeaderHome from "./HeaderHome";
 const Home = () => {
   const { activeCollection } = useContext(CollectionContext);
   const [info, setInfo] = useState<IInfos | null>(null);
-  const mutationLogin = useMutation(() => decksServices.getAll(activeCollection), {
+  const decks = useMutation(() => decksServices.getAll(activeCollection), {
     onSuccess: (data) => {
       console.log(data)
     },
@@ -25,14 +25,14 @@ const Home = () => {
   useEffect(() => {
     if (activeCollection) {
       getCollection();
-      mutationLogin.mutate()
+      decks.mutate()
     }
   }, [activeCollection]);
   return (
-    info ? (
+    decks.data !== undefined && info ? (
       <div>
         <HeaderHome infos={info} />
-        <Decks />
+        <Decks decks={decks.data} />
       </div>
     ) : <div>loading</div>
   );

@@ -4,11 +4,19 @@ import * as C from './style'
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import ProgressBar from '../../../../components/progress_bar';
 import { Container } from '../../../Login/style';
+import useDeck from '../../../../hooks/useDeck'
 interface IPropsDeck {
   deck: IDecks
 }
 
 const Deck = ({ deck }: IPropsDeck) => {
+  const { verifyCompletedCards } = useDeck();
+  const {
+    numberCompletedCards,
+    totalCards
+  } = verifyCompletedCards(deck)
+  const progressCompleted = Math.floor((numberCompletedCards / totalCards) * 100)
+  console.log(progressCompleted)
   return (
     <C.ContainerDeck>
       <C.ContainerCompleted>
@@ -18,10 +26,10 @@ const Deck = ({ deck }: IPropsDeck) => {
       <C.ContainerName>
         <C.ContainerInfoNameAndCompletedTasks>
           <C.Name> {deck.name} </C.Name>
-          <C.TotalCompleteds> 0 de {deck.cards.length} cards estudados </C.TotalCompleteds>
+          <C.TotalCompleteds> {numberCompletedCards} de {deck.cards.length} cards estudados </C.TotalCompleteds>
         </C.ContainerInfoNameAndCompletedTasks>
         <C.ContainerProgressPercentage>
-          <C.ContainerPercentage progress={20} />
+          <C.ContainerPercentage progress={progressCompleted} />
         </C.ContainerProgressPercentage>
       </C.ContainerName>
     </C.ContainerDeck>

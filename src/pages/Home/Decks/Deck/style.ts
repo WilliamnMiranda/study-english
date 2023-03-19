@@ -53,7 +53,8 @@ export const ContainerProgressPercentage = styled.div`
 	background-color: rgb(213, 242, 253);
 `;
 export const ContainerPercentage = styled.div<IPercentage>`
-	width: 80px;
+	width: ${({ progress }) => progress + "%"};
+	transition: all 2s;
 	height: 15px;
 	background-color: rgb(36, 168, 215);
 `;

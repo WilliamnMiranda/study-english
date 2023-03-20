@@ -8,8 +8,14 @@ interface IProps {
   collection: ICollection;
 }
 const Collection = ({ collection }: IProps) => {
-  const { activeCollection, changeCollection } = useCollection();
+  const { activeCollection, changeCollection, verifyCompletedCollections } = useCollection();
   const currentCollection = activeCollection === collection._id ? true : false;
+
+  const {
+    totalCardsCompleted,
+    totalCards,
+  } = verifyCompletedCollections(collection)
+  const progressCompleted = Math.floor((totalCardsCompleted / totalCards) * 100)
   return (
     <C.ContainerCollection
       currentCollection={currentCollection}
@@ -21,7 +27,7 @@ const Collection = ({ collection }: IProps) => {
           <C.IconVerify> </C.IconVerify>
           {collection.abbreviation} - {collection.name}
         </C.TittleCollection>
-        <ProgressBar currentCollection={currentCollection} progress={20} />
+        <ProgressBar currentCollection={currentCollection} progress={progressCompleted} />
       </C.ContainerInfosCollection>
     </C.ContainerCollection>
   );

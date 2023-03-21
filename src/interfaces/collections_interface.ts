@@ -1,16 +1,21 @@
 export interface ICollection {
-  code: string;
-  name: string;
-  user: string;
-  _id: string;
-  abbreviation: string;
-  decks: []
+	code: string;
+	name: string;
+	user: string;
+	_id: string;
+	abbreviation: string;
+	decks: [];
 }
 
 export interface IInfos {
-  name: string;
-  code: string;
-  abbreviation: string;
-  completedCards: number;
-  totalTasksInCards: number;
+	name: string;
+	code: string;
+	abbreviation: string;
+	completedCards: number;
+	totalTasksInCards: number;
+}
+
+export interface ICreateCollection {
+	name: string;
+	abbreviation: string;
 }

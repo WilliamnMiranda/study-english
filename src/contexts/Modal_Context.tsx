@@ -1,17 +1,46 @@
-import { createContext, ReactNode, SetStateAction, useState } from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from "react";
 interface IProps {
   children: ReactNode;
 }
-interface ModalContextType {
-  modalStatus: boolean;
-  setModalStatus: React.Dispatch<SetStateAction<boolean>>;
+
+type modalTypes = null | 'collection'
+type modalAction = 'open' | 'close'
+
+export interface IModal {
+  isOpen: boolean,
+  type: modalTypes
 }
 
-export const ModalContext = createContext({} as ModalContextType);
+export interface IModalContext {
+  modal: IModal,
+  setModal: Dispatch<SetStateAction<IModal>>,
+  setTypeModal: (type: modalTypes, action: modalAction) => void
+}
+
+const initalValue = {
+  modal: {
+    isOpen: false,
+    type: null
+  },
+  setModal: () => { },
+  setTypeModal: () => { }
+}
+
+export const ModalContext = createContext<IModalContext>(initalValue)
+
 export const ModalProvider = ({ children }: IProps) => {
-  const [modalStatus, setModalStatus] = useState<boolean>(false);
+  const [modal, setModal] = useState<IModal>({
+    isOpen: false,
+    type: null,
+  })
+  const setTypeModal = (type: modalTypes, action: modalAction) => {
+    setModal({
+      type: type,
+      isOpen: action === 'open' ? true : false
+    })
+  }
   return (
-    <ModalContext.Provider value={{ modalStatus, setModalStatus }}>
+    <ModalContext.Provider value={{ modal, setModal, setTypeModal }}>
       {children}
     </ModalContext.Provider>
   );

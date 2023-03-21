@@ -11,7 +11,7 @@ export const CollectionContext = createContext({} as CollectionContextType);
 export const CollectionProvider = ({ children }: IProps) => {
   const [activeCollection, setActiveCollection] = useState<string>('');
   return (
-    <CollectionContext.Provider value={{setActiveCollection,activeCollection}}>
+    <CollectionContext.Provider value={{ setActiveCollection, activeCollection }}>
       {children}
     </CollectionContext.Provider>
   );

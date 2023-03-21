@@ -7,6 +7,8 @@ import decksServices from "../../services/Decks";
 import Decks from "./Decks";
 import HeaderHome from "./HeaderHome";
 import LoadingImage from '../../assets/loading.gif'
+import Modal from "../../components/modal";
+import { ModalContext } from "../../contexts/Modal_Context";
 const Home = () => {
   const { activeCollection } = useContext(CollectionContext);
   const [info, setInfo] = useState<IInfos | null>(null);
@@ -28,13 +30,19 @@ const Home = () => {
       decks.mutate()
     }
   }, [activeCollection]);
-  return (
-    decks.data !== undefined && info &&
-    <div>
-      <HeaderHome infos={info} />
-      <Decks decks={decks.data} />
-    </div>
 
+  const { modal } = useContext(ModalContext)
+  return (
+    <>
+      {modal.isOpen && <Modal />}
+      {
+        decks.data !== undefined && info &&
+        <div>
+          <HeaderHome infos={info} />
+          <Decks decks={decks.data} />
+        </div>
+      }
+    </>
   );
 };
 

@@ -15,13 +15,26 @@ export const ContainerModal = styled.section`
 `;
 export const Modal = styled.section`
 	width: 600px;
-	height: 400px;
 	background-color: white;
-	padding: 10px 20px;
+	padding: 30px 20px;
+	border-radius: 10px;
+`;
+export const TittleModal = styled.h2`
+	font-weight: bold;
+	font-family: "Mulish", sans-serif;
+	font-size: 1.2em;
+	text-transform: uppercase;
 `;
 export const HeaderModal = styled.div`
 	width: 100%;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
+	align-items: center;
 	padding: 5px 0px;
+	margin-bottom: 20px;
+	svg {
+		font-size: 1.4em;
+		font-weight: bold;
+		cursor: pointer;
+	}
 `;

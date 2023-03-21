@@ -5,6 +5,7 @@ export const InputText = styled.input`
 	height: 35px;
 	outline: none;
 	border: 1px solid rgba(0, 0, 0, 0.4);
+	padding: 0px 5px;
 `;
 export const ContainerInput = styled.div`
 	display: flex;
@@ -23,6 +24,7 @@ export const ButtonCreate = styled.button`
 	color: white;
 	font-weight: 500;
 	font-family: "Mulish", sans-serif;
+	margin-top: 10px;
 `;
 export const ContainerModalCollection = styled.div`
 	display: flex;

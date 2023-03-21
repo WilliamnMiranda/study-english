@@ -10,18 +10,10 @@ import { ModalContext } from "../../../contexts/Modal_Context";
 const Collections = () => {
   const { activeCollection, setActiveCollection } = useContext(CollectionContext);
   const { data } = useQuery({
-    queryKey: ['colections'],
+    queryKey: ['collections'],
     queryFn: () => collectionServices.getAll()
   })
   const { setTypeModal } = useContext(ModalContext)
-  const mutate = useMutation(() => collectionServices.create({ name: 'Estetica', abbreviation: 'EST' }), {
-    onSuccess: (data) => {
-      console.log(data)
-    },
-    onError: ({ response }) => {
-      console.log(response.data);
-    },
-  });
 
   React.useEffect(() => {
     if (data)

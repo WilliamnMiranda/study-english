@@ -38,7 +38,7 @@ const Home = () => {
       mutateDeck.mutate()
     }
   }, [activeCollection]);
-
+  console.log(decks)
   const { modal } = useContext(ModalContext)
   return (
     <>

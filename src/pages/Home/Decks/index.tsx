@@ -16,10 +16,11 @@ const EmptyCards = () => {
     </C.ContainerEmpty>
   )
 }
+
 const Decks = ({ decks }: IProps) => {
   return (
     <C.ContainerDecks>
-      {decks.length > 0 ? decks.map((deck: IDecks) => <Deck deck={deck} />) : <EmptyCards />}
+      {decks !== undefined && decks.length > 0 ? decks.map((deck: IDecks) => <Deck deck={deck} />) : <EmptyCards />}
     </C.ContainerDecks>
   )
 }

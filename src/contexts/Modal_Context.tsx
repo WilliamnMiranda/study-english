@@ -14,7 +14,7 @@ export interface IModal {
 export interface IModalContext {
   modal: IModal,
   setModal: Dispatch<SetStateAction<IModal>>,
-  setTypeModal: (type: modalTypes, action: modalAction, activeItem: string) => void
+  setTypeModal: (type: modalTypes, action: modalAction, activeItem?: string) => void
   activeItem?: string | null,
 }
 

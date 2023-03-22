@@ -7,3 +7,9 @@ export interface ICard {
 	deck: string;
 	_id: string;
 }
+
+export interface ICreateCard {
+	front: string;
+	back: string;
+	deck: string;
+}

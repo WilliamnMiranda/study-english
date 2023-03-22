@@ -16,7 +16,6 @@ const EmptyCards = () => {
     </C.ContainerEmpty>
   )
 }
-
 const Decks = ({ decks }: IProps) => {
   return (
     <C.ContainerDecks>

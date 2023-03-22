@@ -12,7 +12,8 @@ import { ModalContext } from "../../contexts/Modal_Context";
 const Home = () => {
   const { activeCollection } = useContext(CollectionContext);
   const [info, setInfo] = useState<IInfos | null>(null);
-  const decks = useMutation(() => decksServices.getAll(activeCollection), {
+
+  const mutateDeck = useMutation(() => decksServices.getAll(activeCollection), {
     onSuccess: (data) => {
       console.log(data)
     },
@@ -20,6 +21,13 @@ const Home = () => {
       console.log(response.data);
     },
   });
+
+  const { data: decks, isLoading } = useQuery(['decks', activeCollection], () =>
+    decksServices.getAll(activeCollection),
+    {
+      enabled: !!activeCollection
+    }
+  );
   const getCollection = async () => {
     const info = await collectionServices.getInfo(activeCollection);
     setInfo(info);
@@ -27,7 +35,7 @@ const Home = () => {
   useEffect(() => {
     if (activeCollection) {
       getCollection();
-      decks.mutate()
+      mutateDeck.mutate()
     }
   }, [activeCollection]);
 
@@ -36,10 +44,10 @@ const Home = () => {
     <>
       {modal.isOpen && <Modal />}
       {
-        decks.data !== undefined && info &&
+        mutateDeck !== undefined && info &&
         <div>
           <HeaderHome infos={info} />
-          <Decks decks={decks.data} />
+          <Decks decks={decks} />
         </div>
       }
     </>

@@ -1,5 +1,6 @@
 import { ICard } from "../interfaces/cards_interfaces";
 import { IDecks } from "../interfaces/decks_interfaces";
+import decksServices from "../services/Decks";
 
 const useDeck = () => {
 	const NumberOfCompletedcards = 0;
@@ -19,8 +20,14 @@ const useDeck = () => {
 		};
 	};
 
+	const createDeck = async (name: string, id: string) => {
+		const a = await decksServices.create({ name, id });
+		console.log(a);
+	};
+
 	return {
 		verifyCompletedCards,
+		createDeck,
 	};
 };
 

@@ -6,13 +6,15 @@ import { IInfos } from "../../../interfaces/collections_interface";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { AiOutlinePlus } from "react-icons/ai";
 import 'react-circular-progressbar/dist/styles.css';
+import { useContext } from "react";
+import { ModalContext } from "../../../contexts/Modal_Context";
 interface IProps {
   infos: IInfos;
 }
 const HeaderHome = ({ infos }: IProps) => {
   const { completedCards, totalTasksInCards } = infos
   const percentage = completedCards ? totalTasksInCards ? Math.floor(completedCards / totalTasksInCards * 100) : 0 : 0
-
+  const { setTypeModal } = useContext(ModalContext)
   return (
     <C.ContainerHeaderInfo>
       <C.ContainerInfos>
@@ -31,7 +33,7 @@ const HeaderHome = ({ infos }: IProps) => {
             <C.Icon src={iconSvg} />
             <C.ButtonStart>Estudar</C.ButtonStart>
             <C.AddDeck>
-              <AiOutlinePlus />
+              <AiOutlinePlus onClick={() => setTypeModal('deck', 'open')} />
             </C.AddDeck>
             <C.Share>
               <C.Icon src={iconShare} /> Compartilhar

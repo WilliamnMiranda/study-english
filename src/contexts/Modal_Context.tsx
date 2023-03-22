@@ -3,7 +3,7 @@ interface IProps {
   children: ReactNode;
 }
 
-type modalTypes = null | 'collection'
+type modalTypes = null | 'collection' | 'deck'
 type modalAction = 'open' | 'close'
 
 export interface IModal {

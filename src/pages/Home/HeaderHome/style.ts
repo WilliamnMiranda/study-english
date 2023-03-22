@@ -21,6 +21,12 @@ export const ContainerInfos = styled.section`
 	display: flex;
 	gap: 30px;
 `;
+
+export const AddDeck = styled.div`
+	font-size: 1.5em;
+	color: #3da4da;
+	cursor: pointer;
+`;
 export const ContainerAllInfos = styled.div`
 	display: flex;
 	flex-direction: column;

@@ -4,6 +4,7 @@ import iconShare from "../../../assets/share.svg";
 import iconEdit from "../../../assets/edit.svg";
 import { IInfos } from "../../../interfaces/collections_interface";
 import { CircularProgressbar } from 'react-circular-progressbar';
+import { AiOutlinePlus } from "react-icons/ai";
 import 'react-circular-progressbar/dist/styles.css';
 interface IProps {
   infos: IInfos;
@@ -11,8 +12,7 @@ interface IProps {
 const HeaderHome = ({ infos }: IProps) => {
   const { completedCards, totalTasksInCards } = infos
   const percentage = completedCards ? totalTasksInCards ? Math.floor(completedCards / totalTasksInCards * 100) : 0 : 0
-  console.log(totalTasksInCards)
-  console.log(completedCards)
+
   return (
     <C.ContainerHeaderInfo>
       <C.ContainerInfos>
@@ -30,6 +30,9 @@ const HeaderHome = ({ infos }: IProps) => {
           <C.ContainerOptionsInfos>
             <C.Icon src={iconSvg} />
             <C.ButtonStart>Estudar</C.ButtonStart>
+            <C.AddDeck>
+              <AiOutlinePlus />
+            </C.AddDeck>
             <C.Share>
               <C.Icon src={iconShare} /> Compartilhar
             </C.Share>

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { IDecks } from '../../../../interfaces/decks_interfaces'
 import * as C from './style'
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import ProgressBar from '../../../../components/progress_bar';
 import { Container } from '../../../Login/style';
 import useDeck from '../../../../hooks/useDeck'
+import { AiOutlinePlusCircle, AiFillEdit, AiOutlineHeart, AiOutlinePlayCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { ModalContext } from '../../../../contexts/Modal_Context';
 interface IPropsDeck {
   deck: IDecks
 }
@@ -17,6 +19,7 @@ const Deck = ({ deck }: IPropsDeck) => {
   } = verifyCompletedCards(deck)
   const progressCompleted = Math.floor((numberCompletedCards / totalCards) * 100)
   console.log(progressCompleted)
+  const { setTypeModal } = useContext(ModalContext)
   return (
     <C.ContainerDeck>
       <C.ContainerCompleted>
@@ -32,6 +35,14 @@ const Deck = ({ deck }: IPropsDeck) => {
           <C.ContainerPercentage progress={progressCompleted} />
         </C.ContainerProgressPercentage>
       </C.ContainerName>
+
+      <C.ContainerOptions>
+        <AiOutlinePlayCircle />
+        <AiOutlinePlusCircle onClick={() => setTypeModal('card', 'open', deck._id)} />
+        <AiOutlineHeart />
+        <AiFillEdit />
+        <AiOutlineCloseCircle />
+      </C.ContainerOptions>
     </C.ContainerDeck>
   )
 }

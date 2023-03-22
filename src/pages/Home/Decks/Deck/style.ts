@@ -6,6 +6,7 @@ interface IPercentage {
 export const ContainerDeck = styled.div`
 	padding: 20px 0px;
 	display: flex;
+	justify-content: space-between;
 	gap: 20px;
 	border-bottom: 1px solid rgb(229, 229, 229);
 `;
@@ -39,6 +40,7 @@ export const ContainerName = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
+	width: 80%;
 `;
 export const Name = styled.div`
 	font-family: "Mulish", sans-serif;
@@ -68,4 +70,14 @@ export const TotalCompleteds = styled.div`
 	color: rgb(177, 177, 177);
 	font-family: "Mulish", sans-serif;
 	font-weight: bold;
+`;
+export const ContainerOptions = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	font-size: 1.5em;
+	color: rgb(121, 147, 166);
+	svg {
+		cursor: pointer;
+	}
 `;

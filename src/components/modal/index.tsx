@@ -4,6 +4,7 @@ import ModalCollection from './collection'
 import * as C from './style'
 import { AiOutlineClose } from "react-icons/ai";
 import ModalCreateDeck from './deck';
+import ModalCard from './card';
 
 interface IProps {
   type: 'collection' | 'deck' | 'card'
@@ -12,7 +13,8 @@ interface IProps {
 const Modal = () => {
   const modalTypes: { [key: string]: any } = {
     collection: <ModalCollection />,
-    deck: <ModalCreateDeck />
+    deck: <ModalCreateDeck />,
+    card: <ModalCard />
   }
 
   const textsTypesModal: { [key: string]: any } = {

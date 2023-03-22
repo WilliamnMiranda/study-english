@@ -3,7 +3,7 @@ interface IProps {
   children: ReactNode;
 }
 
-type modalTypes = null | 'collection' | 'deck'
+type modalTypes = null | 'collection' | 'deck' | 'card'
 type modalAction = 'open' | 'close'
 
 export interface IModal {
@@ -14,7 +14,8 @@ export interface IModal {
 export interface IModalContext {
   modal: IModal,
   setModal: Dispatch<SetStateAction<IModal>>,
-  setTypeModal: (type: modalTypes, action: modalAction) => void
+  setTypeModal: (type: modalTypes, action: modalAction, activeItem: string) => void
+  activeItem?: string | null,
 }
 
 const initalValue = {
@@ -23,7 +24,8 @@ const initalValue = {
     type: null
   },
   setModal: () => { },
-  setTypeModal: () => { }
+  setTypeModal: () => { },
+  activeItem: null
 }
 
 export const ModalContext = createContext<IModalContext>(initalValue)
@@ -33,14 +35,20 @@ export const ModalProvider = ({ children }: IProps) => {
     isOpen: false,
     type: null,
   })
-  const setTypeModal = (type: modalTypes, action: modalAction) => {
+  const [activeItem, setActiveItem] = useState<string | null>(null)
+  const setTypeModal = (type: modalTypes, action: modalAction, activeItem: string | null = null) => {
+    if (activeItem !== null) setActiveItem(activeItem)
+
     setModal({
       type: type,
       isOpen: action === 'open' ? true : false
     })
+
+    if (action !== 'open')
+      setActiveItem(null)
   }
   return (
-    <ModalContext.Provider value={{ modal, setModal, setTypeModal }}>
+    <ModalContext.Provider value={{ modal, setModal, setTypeModal, activeItem }}>
       {children}
     </ModalContext.Provider>
   );

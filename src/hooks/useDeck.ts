@@ -1,10 +1,11 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { ICard } from "../interfaces/cards_interfaces";
 import { IDecks } from "../interfaces/decks_interfaces";
 import decksServices from "../services/Decks";
 
 const useDeck = () => {
 	const NumberOfCompletedcards = 0;
-
+	const queryClient = useQueryClient();
 	const verifyCompletedCards = (deck: IDecks) => {
 		const numberCompletedCards = deck.cards.reduce(
 			(accumulator, card: ICard) => {
@@ -22,7 +23,7 @@ const useDeck = () => {
 
 	const createDeck = async (name: string, id: string) => {
 		const a = await decksServices.create({ name, id });
-		console.log(a);
+		queryClient.invalidateQueries(["decks"]);
 	};
 
 	return {

@@ -12,6 +12,7 @@ export const ContainerModal = styled.section`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	z-index: 100000;
 `;
 export const Modal = styled.section`
 	width: 600px;

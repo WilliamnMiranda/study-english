@@ -7,7 +7,7 @@ import decksServices from "../../services/Decks";
 import EmptyImage from '../../assets/empty.svg'
 import Decks from "./Decks";
 import HeaderHome from "./HeaderHome";
-import LoadingImage from '../../assets/loading.gif'
+import Collections from '../../assets/Collections.svg'
 import Modal from "../../components/modal";
 import { ModalContext } from "../../contexts/Modal_Context";
 import * as C from './style'
@@ -48,9 +48,9 @@ const Home = () => {
   const EmptyCards = () => {
     return (
       <C.ContainerEmpty>
-        <img src={EmptyImage} />
-        <p>Voce nao possui nenhum cartao criado</p>
-        <button> Criar um Deck</button>
+        <img src={Collections} />
+        <p>Voce nao possui nenhuma colecao criada criada</p>
+        <button> Criar uma colecao</button>
       </C.ContainerEmpty>
     )
   }

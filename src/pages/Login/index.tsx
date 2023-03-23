@@ -9,16 +9,16 @@ const Login = () => {
   const password = useRef("");
   const navigate = useNavigate();
   const handleSubmit = async () => await userServices.login({
-      email: email.current,
-      password: password.current,
-    });
+    email: email.current,
+    password: password.current,
+  });
   const mutationLogin = useMutation(handleSubmit, {
     onSuccess: (data) => {
-      localStorage.setItem('english-token',data.token)
-      toast.error("Lorem ipsum dolor")
+      localStorage.setItem('english-token', data.token)
+      toast.success("Login efetuado com sucesso")
       setTimeout(() => {
         navigate('/')
-      }, 7000);
+      }, 700);
     },
     onError: ({ response }) => {
       console.log(response.data);
@@ -26,7 +26,7 @@ const Login = () => {
   });
   React.useEffect(() => {
     const token = localStorage.getItem('english-token')
-    token && navigate('/') 
+    token && navigate('/')
   }, [])
   return (
     <C.Container>
@@ -39,7 +39,7 @@ const Login = () => {
         </C.Field>
         <C.Field>
           <C.Label>Password</C.Label>
-          <C.Input onChange={(e) => (password.current = e.target.value)} />
+          <C.Input type='password' onChange={(e) => (password.current = e.target.value)} />
         </C.Field>
 
         <C.ButtonSubmit onClick={() => mutationLogin.mutate()}>

@@ -9,15 +9,15 @@ import { CollectionContext } from "../../../contexts/Collection_Context";
 import { ModalContext } from "../../../contexts/Modal_Context";
 const Collections = () => {
   const { activeCollection, setActiveCollection } = useContext(CollectionContext);
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['collections'],
     queryFn: () => collectionServices.getAll()
   })
   const { setTypeModal } = useContext(ModalContext)
 
   React.useEffect(() => {
-    if (data)
-      setActiveCollection(data[0]._id)
+    if (data !== undefined)
+      if (data.length !== 0) setActiveCollection(data[0]._id)
   }, [data])
 
   return (

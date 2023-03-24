@@ -37,7 +37,7 @@ const Deck = ({ deck }: IPropsDeck) => {
       </C.ContainerName>
 
       <C.ContainerOptions>
-        <AiOutlinePlayCircle />
+        <AiOutlinePlayCircle onClick={() => setTypeModal('training', 'open', deck._id)} />
         <AiOutlinePlusCircle onClick={() => setTypeModal('card', 'open', deck._id)} />
         <AiOutlineHeart />
         <AiFillEdit />

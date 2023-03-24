@@ -27,7 +27,7 @@ const useCollection = () => {
 			onSuccess: (data) => {
 				setTypeModal(null, "close");
 				queryClient.invalidateQueries(["collections"]);
-				toast.error("Lorem ipsum dolor");
+				toast.success("Colecao criada com sucesso");
 			},
 			onError: ({ response }) => {
 				console.log(response.data);

@@ -3,7 +3,7 @@ interface IProps {
   children: ReactNode;
 }
 
-type modalTypes = null | 'collection' | 'deck' | 'card'
+type modalTypes = null | 'collection' | 'deck' | 'card' | 'training'
 type modalAction = 'open' | 'close'
 
 export interface IModal {
@@ -37,7 +37,7 @@ export const ModalProvider = ({ children }: IProps) => {
   })
   const [activeItem, setActiveItem] = useState<string | null>(null)
   const setTypeModal = (type: modalTypes, action: modalAction, activeItem: string | null = null) => {
-    if (activeItem !== null) setActiveItem(activeItem)
+    if (action === 'open') setActiveItem(activeItem)
 
     setModal({
       type: type,

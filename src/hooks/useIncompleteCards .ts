@@ -10,11 +10,13 @@ const useReviewDecks = (id: string) => {
 		queryKey: ["incompletedcards"],
 		queryFn: () => decksServices.getAllIncompletedCards(id),
 	});
+
 	const queryClient = useQueryClient();
 	const [currentItem, setCurrentItem] = useState<ICard>();
 	const [wrongLetters, setWrongLetters] = useState<ICard[] | null>(null);
 	const [activeResult, setActiveResult] = useState(false);
 	const [value, setValue] = useState("");
+
 	const mutateDeck = useMutation(() => cardsServices.changed(data[0]._id), {
 		onSuccess: (data) => {
 			queryClient.invalidateQueries(["collections"]);
@@ -24,17 +26,11 @@ const useReviewDecks = (id: string) => {
 			refetch();
 			setValue("");
 		},
-		onError: ({ response }) => {
-			console.log(response.data);
-		},
 	});
 
-	const showResult = () => {
-		setActiveResult(true);
-	};
-	const changeCard = () => {
-		mutateDeck.mutate();
-	};
+	const showResult = () => setActiveResult(true);
+
+	const changeCard = () => mutateDeck.mutate();
 
 	useEffect(() => {
 		if (!isLoading) {
@@ -43,10 +39,7 @@ const useReviewDecks = (id: string) => {
 		}
 	}, [data]);
 
-	const accept = (card: ICard) => {};
-
 	return {
-		//takeIncompleteCardsFromTheDeck,
 		data,
 		isLoading,
 		currentItem,

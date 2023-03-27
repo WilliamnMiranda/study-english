@@ -22,8 +22,10 @@ const Modal = () => {
   const textsTypesModal: { [key: string]: any } = {
     collection: 'Criando nova colecao',
     deck: ' Criar novo deck',
-    card: ' Criar novo card'
+    card: ' Criar novo card',
+    training: 'Revisando',
   }
+
   const { modal, setTypeModal } = useContext(ModalContext)
   return (
     <C.ContainerModal>

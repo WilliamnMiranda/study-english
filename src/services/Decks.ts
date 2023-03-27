@@ -16,6 +16,11 @@ const decksServices = {
 			await api.post(`/deck/${data.id}`, data)
 		).data;
 	},
+	getAllIncompletedCards: async (deckId: string) => {
+		return await (
+			await api.get(`/deck/getincompletedscards/${deckId}`)
+		).data;
+	},
 };
 
 export default decksServices;

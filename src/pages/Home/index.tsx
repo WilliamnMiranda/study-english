@@ -12,6 +12,7 @@ import Modal from "../../components/modal";
 import { ModalContext } from "../../contexts/Modal_Context";
 import * as C from './style'
 import Loading from "../../components/loading";
+import { BeatLoader } from "react-spinners";
 const Home = () => {
   const { activeCollection } = useContext(CollectionContext);
   const { modal } = useContext(ModalContext)
@@ -56,7 +57,11 @@ const Home = () => {
     )
   }
   if (isLoading)
-    return <Loading />
+    return (
+      <C.ContainerLoading>
+        <BeatLoader color="#3da4da" size={25} />
+      </C.ContainerLoading>
+    )
   return (
     <>
       {modal.isOpen && <Modal />}

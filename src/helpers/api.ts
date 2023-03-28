@@ -1,11 +1,11 @@
 import axios from "axios";
 export const api = axios.create({
-	baseURL: "http://localhost:8081",
+	baseURL: "https://api-study-kappa.vercel.app",
 });
 
 api.interceptors.request.use(
 	async (config) => {
-		const  token  = localStorage.getItem('english-token');
+		const token = localStorage.getItem("english-token");
 		if (token) {
 			config.headers!["x-access-token"] = token;
 		}

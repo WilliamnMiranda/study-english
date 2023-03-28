@@ -54,6 +54,8 @@ const Home = () => {
       </C.ContainerEmpty>
     )
   }
+  if (isLoading)
+    return <div> carregando </div>
   return (
     <>
       {modal.isOpen && <Modal />}

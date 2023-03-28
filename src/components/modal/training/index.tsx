@@ -4,6 +4,7 @@ import useReviewDecks from '../../../hooks/useIncompleteCards ';
 import decksServices from '../../../services/Decks';
 import * as C from './style'
 import EmptyImage from '../../../assets/empty.svg'
+import Loading from '../../loading';
 
 const Modal = () => {
   const { activeItem } = useContext(ModalContext);
@@ -11,7 +12,7 @@ const Modal = () => {
   return (
     <>
       {
-        loadingMutation ? <div> carregando </div> : <C.ContainerTraining>
+        loadingMutation ? <Loading /> : <C.ContainerTraining>
           <C.ContainerFront>
             <C.Label> Parte da da frente</C.Label>
             <C.ContainerResponseFront> <p>{currentItem?.front}</p> </C.ContainerResponseFront>
@@ -53,7 +54,7 @@ const ModalTraining = () => {
   const { data, isLoading } = useReviewDecks(activeItem as string)
 
   if (isLoading)
-    return <div> carregando </div>
+    return <Loading />
 
   return (
     data.length > 0 ? <Modal /> : <EmptyCards />

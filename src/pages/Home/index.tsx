@@ -11,6 +11,7 @@ import Collections from '../../assets/Collections.svg'
 import Modal from "../../components/modal";
 import { ModalContext } from "../../contexts/Modal_Context";
 import * as C from './style'
+import Loading from "../../components/loading";
 const Home = () => {
   const { activeCollection } = useContext(CollectionContext);
   const { modal } = useContext(ModalContext)
@@ -55,7 +56,7 @@ const Home = () => {
     )
   }
   if (isLoading)
-    return <div> carregando </div>
+    return <Loading />
   return (
     <>
       {modal.isOpen && <Modal />}

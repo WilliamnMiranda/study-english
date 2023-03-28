@@ -18,16 +18,7 @@ const Home = () => {
   const { activeCollection } = useContext(CollectionContext);
   const { modal } = useContext(ModalContext)
   const [info, setInfo] = useState<IInfos | null>(null);
-  console.log(activeCollection)
-  const mutateDeck = useMutation(() => decksServices.getAll(activeCollection), {
-    onSuccess: (data) => {
-      console.log(data)
-    },
-    onError: ({ response }) => {
-      console.log(response.data);
-    },
-  });
-
+  const mutateDeck = useMutation(() => decksServices.getAll(activeCollection), {});
   const { data: decks, isLoading } = useQuery(['decks', activeCollection], () =>
     decksServices.getAll(activeCollection),
     {
@@ -44,9 +35,6 @@ const Home = () => {
       mutateDeck.mutate()
     }
   }, [activeCollection]);
-  console.log(decks)
-
-
 
   const EmptyCards = () => {
     return (

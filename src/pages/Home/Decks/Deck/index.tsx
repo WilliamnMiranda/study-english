@@ -18,7 +18,6 @@ const Deck = ({ deck }: IPropsDeck) => {
     totalCards
   } = verifyCompletedCards(deck)
   const progressCompleted = Math.floor((numberCompletedCards / totalCards) * 100)
-  console.log(progressCompleted)
   const { setTypeModal } = useContext(ModalContext)
   return (
     <C.ContainerDeck>

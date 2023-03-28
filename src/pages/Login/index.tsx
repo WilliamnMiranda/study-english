@@ -19,10 +19,7 @@ const Login = () => {
       setTimeout(() => {
         navigate('/')
       }, 700);
-    },
-    onError: ({ response }) => {
-      console.log(response.data);
-    },
+    }
   });
   React.useEffect(() => {
     const token = localStorage.getItem('english-token')

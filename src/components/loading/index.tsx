@@ -1,6 +1,5 @@
 import * as C from './style'
 const Loading = () => {
-  console.log('loading')
   return (
     <C.ContainerLoading >
       <C.SpinnerLoading >

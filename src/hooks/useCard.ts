@@ -14,9 +14,6 @@ const useDeck = () => {
 			queryClient.invalidateQueries(["decks"]);
 			setTypeModal(null, "close");
 		},
-		onError: ({ response }) => {
-			console.log(response.data);
-		},
 	});
 
 	const createCard = async (data: ICreateCard) => mutate.mutate(data);

@@ -6,7 +6,6 @@ interface IDataCreateDeck {
 }
 const decksServices = {
 	getAll: async (collection: string) => {
-		console.log(collection);
 		return await (
 			await api.get(`/deck/${collection}`)
 		).data;

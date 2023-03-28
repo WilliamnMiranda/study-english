@@ -29,15 +29,12 @@ const useCollection = () => {
 				queryClient.invalidateQueries(["collections"]);
 				toast.success("Colecao criada com sucesso");
 			},
-			onError: ({ response }) => {
-				console.log(response.data);
-			},
+			onError: ({ response }) => {},
 		},
 	);
 
 	const createCollection = (data: ICreateCollection) => {
 		const { abbreviation } = data;
-		console.log(data);
 		if (abbreviation.length !== 3)
 			setError("Voce precisa digitar ate 3 letras na sigla");
 		else {

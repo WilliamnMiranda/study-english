@@ -28,11 +28,9 @@ const Home = () => {
   );
   useEffect(() => {
     getCollection();
-    console.log('aaaaaaaa')
   }, [decks])
   const getCollection = async () => {
     const info = await collectionServices.getInfo(activeCollection);
-    console.log('info', info)
     setInfo(info);
   };
 

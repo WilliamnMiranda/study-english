@@ -13,7 +13,6 @@ const Collections = () => {
     queryKey: ['collections'],
     queryFn: () => collectionServices.getAll()
   })
-  console.log(data)
   const { setTypeModal } = useContext(ModalContext)
 
   React.useEffect(() => {

@@ -9,7 +9,7 @@ import collectionServices from "../../services/Collection";
 import decksServices from "../../services/Decks";
 import Decks from "./Decks";
 import HeaderHome from "./HeaderHome";
-import Collections from '../../assets/Collections.svg'
+import Collections from '../../assets/collections.svg'
 import Modal from "../../components/modal";
 import * as C from './style'
 

@@ -4,7 +4,7 @@ import iconShare from "../../../assets/share.svg";
 import iconEdit from "../../../assets/edit.svg";
 import { IInfos } from "../../../interfaces/collections_interface";
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineDelete } from "react-icons/ai";
 import 'react-circular-progressbar/dist/styles.css';
 import { useContext } from "react";
 import { ModalContext } from "../../../contexts/Modal_Context";
@@ -13,6 +13,7 @@ interface IProps {
 }
 const HeaderHome = ({ infos }: IProps) => {
   const { completedCards, totalTasksInCards } = infos
+  console.log(completedCards)
   const percentage = completedCards ? totalTasksInCards ? Math.floor(completedCards / totalTasksInCards * 100) : 0 : 0
   const { setTypeModal } = useContext(ModalContext)
   return (
@@ -42,6 +43,10 @@ const HeaderHome = ({ infos }: IProps) => {
               <C.MoreOptionIcon />
               <C.MoreOptionIcon />
               <C.MoreOptionIcon />
+
+              <C.MenuOptions>
+                <C.Option> <AiOutlineDelete /> Deletar</C.Option>
+              </C.MenuOptions>
             </C.MoreOptions>
           </C.ContainerOptionsInfos>
         </C.ContainerAllInfos>

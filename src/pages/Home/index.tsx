@@ -15,20 +15,27 @@ import * as C from './style'
 
 
 const Home = () => {
-  const { activeCollection } = useContext(CollectionContext);
+  const { activeCollection, info, setInfo } = useContext(CollectionContext);
   const { modal } = useContext(ModalContext)
-  const [info, setInfo] = useState<IInfos | null>(null);
-  const mutateDeck = useMutation(() => decksServices.getAll(activeCollection), {});
-  const { data: decks, isLoading } = useQuery(['decks', activeCollection], () =>
+  const mutateDeck = useMutation(() => decksServices.getAll(activeCollection), {
+
+  });
+  const { data: decks, isLoading, refetch } = useQuery(['decks', activeCollection], () =>
     decksServices.getAll(activeCollection),
     {
       enabled: !!activeCollection
     }
   );
+  useEffect(() => {
+    getCollection();
+    console.log('aaaaaaaa')
+  }, [decks])
   const getCollection = async () => {
     const info = await collectionServices.getInfo(activeCollection);
+    console.log('info', info)
     setInfo(info);
   };
+
   useEffect(() => {
     if (activeCollection) {
       getCollection();
@@ -59,7 +66,7 @@ const Home = () => {
           {
             mutateDeck !== undefined && info &&
             <div>
-              <HeaderHome infos={info} />
+              <HeaderHome />
               <Decks decks={decks} />
             </div>
           }

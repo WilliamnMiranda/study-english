@@ -8,26 +8,24 @@ import { AiOutlinePlus, AiOutlineDelete } from "react-icons/ai";
 import 'react-circular-progressbar/dist/styles.css';
 import { useContext } from "react";
 import { ModalContext } from "../../../contexts/Modal_Context";
-interface IProps {
-  infos: IInfos;
-}
-const HeaderHome = ({ infos }: IProps) => {
-  const { completedCards, totalTasksInCards } = infos
-  console.log(completedCards)
-  const percentage = completedCards ? totalTasksInCards ? Math.floor(completedCards / totalTasksInCards * 100) : 0 : 0
+import { CollectionContext } from "../../../contexts/Collection_Context";
+
+const HeaderHome = () => {
+  const { info: infos } = useContext(CollectionContext)
+  const percentage = infos!.completedCards ? infos!.totalTasksInCards ? Math.floor(infos!.completedCards / infos!.totalTasksInCards * 100) : 0 : 0
   const { setTypeModal } = useContext(ModalContext)
   return (
     <C.ContainerHeaderInfo>
       <C.ContainerInfos>
-        <C.LogoInfo>{infos.name[0]}</C.LogoInfo>
+        <C.LogoInfo>{infos!.name[0]}</C.LogoInfo>
         <C.ContainerAllInfos>
           <C.NameCollection>
-            {infos.abbreviation} - {infos.name} <C.Icon src={iconEdit} />
+            {infos!.abbreviation} - {infos!.name} <C.Icon src={iconEdit} />
           </C.NameCollection>
           <C.TextOfCompletedAndIncompleteTasks>
-            <C.TextBoldItem>{infos.completedCards} </C.TextBoldItem>
+            <C.TextBoldItem>{infos!.completedCards} </C.TextBoldItem>
             de
-            <C.TextBoldItem> {infos.totalTasksInCards} </C.TextBoldItem>
+            <C.TextBoldItem> {infos!.totalTasksInCards} </C.TextBoldItem>
             cards concluidos
           </C.TextOfCompletedAndIncompleteTasks>
           <C.ContainerOptionsInfos>

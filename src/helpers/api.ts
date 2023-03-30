@@ -1,6 +1,6 @@
 import axios from "axios";
 export const api = axios.create({
-	baseURL: "https://api-study-jade.vercel.app",
+	baseURL: "https://api-study.onrender.com/",
 });
 
 api.interceptors.request.use(

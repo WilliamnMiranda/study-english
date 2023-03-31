@@ -13,54 +13,31 @@ import Collections from '../../assets/Collections.svg'
 import Modal from "../../components/modal";
 import * as C from './style'
 
+const EmptyCards = () => {
+  return (
+    <C.ContainerEmpty>
+      <img src={Collections} />
+      <p>Voce nao possui nenhuma colecao criada criada</p>
+      <button> Criar uma colecao</button>
+    </C.ContainerEmpty>
+  )
+}
+
 
 const Home = () => {
-  const { activeCollection } = useContext(CollectionContext);
+  const { activeCollection, isLoading } = useContext(CollectionContext);
   const { modal } = useContext(ModalContext)
-  const [info, setInfo] = useState<IInfos | null>(null);
-  const mutateDeck = useMutation(() => decksServices.getAll(activeCollection), {});
-  const { data: decks, isLoading } = useQuery(['decks', activeCollection], () =>
-    decksServices.getAll(activeCollection),
-    {
-      enabled: !!activeCollection
-    }
-  );
-  const getCollection = async () => {
-    const info = await collectionServices.getInfo(activeCollection);
-    setInfo(info);
-  };
-  useEffect(() => {
-    if (activeCollection) {
-      getCollection();
-      mutateDeck.mutate()
-    }
-  }, [activeCollection]);
 
-  const EmptyCards = () => {
-    return (
-      <C.ContainerEmpty>
-        <img src={Collections} />
-        <p>Voce nao possui nenhuma colecao criada criada</p>
-        <button> Criar uma colecao</button>
-      </C.ContainerEmpty>
-    )
-  }
-  if (isLoading)
-    return (
-      <C.ContainerLoading>
-        <BeatLoader color="#3da4da" size={25} />
-      </C.ContainerLoading>
-    )
+  if (isLoading) return <div> carregando </div>
+
   return (
     <>
       {modal.isOpen && <Modal />}
       {
-        activeCollection === '' ? <EmptyCards /> : <>
+        isLoading ? <EmptyCards /> : <>
           {
-            mutateDeck !== undefined && info &&
             <div>
-              <HeaderHome infos={info} />
-              <Decks decks={decks} />
+              <HeaderHome />
             </div>
           }
         </>

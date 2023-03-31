@@ -1,6 +1,5 @@
 import { api } from "../helpers/api";
 import { ICreateCollection } from "../interfaces/collections_interface";
-import { UserLogin } from "./../interfaces/user_interfaces";
 const collectionServices = {
 	getAll: async () => {
 		return await (

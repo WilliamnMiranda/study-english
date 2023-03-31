@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import useCollection from "../../../../hooks/useCollection";
 import { ICollection } from "../../../../interfaces/collections_interface";
 import ProgressBar from "../../../progress_bar";
 import * as C from "./style";
+import { CollectionContext } from "../../../../contexts/Collection_Context";
 
 interface IProps {
   collection: ICollection;
 }
 const Collection = ({ collection }: IProps) => {
-  const { activeCollection, changeCollection, verifyCompletedCollections } = useCollection();
-  const currentCollection = activeCollection === collection._id ? true : false;
-
+  const { verifyCompletedCollections } = useCollection();
+  const { activeCollection, setActiveCollection } = useContext(CollectionContext)
+  const currentCollection = activeCollection!._id === collection._id ? true : false;
   const {
     totalCardsCompleted,
     totalCards,
@@ -19,7 +20,7 @@ const Collection = ({ collection }: IProps) => {
   return (
     <C.ContainerCollection
       currentCollection={currentCollection}
-      onClick={() => changeCollection(collection._id)}
+      onClick={() => setActiveCollection(collection)}
     >
       <C.ImageCollection> {collection.abbreviation[0]} </C.ImageCollection>
       <C.ContainerInfosCollection>

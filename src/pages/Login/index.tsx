@@ -12,6 +12,7 @@ const Login = () => {
     email: email.current,
     password: password.current,
   });
+
   const mutationLogin = useMutation(handleSubmit, {
     onSuccess: (data) => {
       localStorage.setItem('english-token', data.token)
@@ -21,10 +22,12 @@ const Login = () => {
       }, 700);
     }
   });
+
   React.useEffect(() => {
     const token = localStorage.getItem('english-token')
     token && navigate('/')
   }, [])
+
   return (
     <C.Container>
       <C.ContainerLogin>

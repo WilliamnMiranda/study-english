@@ -16,10 +16,6 @@ const useCollection = () => {
 	const { setTypeModal } = useContext(ModalContext);
 	const [error, setError] = useState("");
 	const queryClient = useQueryClient();
-	const changeCollection = (_id: string) => {
-		if (_id === activeCollection) return;
-		setActiveCollection(_id);
-	};
 
 	const mutate = useMutation(
 		(data: ICreateCollection) => collectionServices.create(data),
@@ -62,7 +58,6 @@ const useCollection = () => {
 	};
 	return {
 		activeCollection,
-		changeCollection,
 		verifyCompletedCollections,
 		error,
 		createCollection,

@@ -8,23 +8,14 @@ import { ICollection } from "../../../interfaces/collections_interface";
 import { CollectionContext } from "../../../contexts/Collection_Context";
 import { ModalContext } from "../../../contexts/Modal_Context";
 const Collections = () => {
-  const { activeCollection, setActiveCollection } = useContext(CollectionContext);
-  const { data, isLoading } = useQuery({
-    queryKey: ['collections'],
-    queryFn: () => collectionServices.getAll()
-  })
-  const { setTypeModal } = useContext(ModalContext)
+  const { activeCollection, setActiveCollection, collections } = useContext(CollectionContext);
 
-  React.useEffect(() => {
-    if (data !== undefined)
-      if (data.length > 0)
-        setActiveCollection(data[0]._id)
-  }, [data])
+  const { setTypeModal } = useContext(ModalContext)
 
   return (
     <C.ContainerCollection>
       <C.HeaderSearch>
-        Minhas coleçoes ({data ? data.length : 0})
+        Minhas coleçoes ({collections ? collections.length : 0})
         <C.ContainerOptionsCollection>
           <C.ButtonAddCollection onClick={() => setTypeModal('collection', 'open')}> <AiOutlinePlus /> </C.ButtonAddCollection>
           <C.ButtonSearchCollection> <AiOutlineSearch /> </C.ButtonSearchCollection>
@@ -33,7 +24,7 @@ const Collections = () => {
 
       <C.ContainerCollections>
         {
-          data?.map((collection: ICollection) => <Collection collection={collection} />)
+          collections?.map((collection: ICollection) => <Collection key={collection._id} collection={collection} />)
         }
       </C.ContainerCollections>
     </C.ContainerCollection>

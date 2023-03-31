@@ -23,6 +23,7 @@ const useCollection = () => {
 			onSuccess: (data) => {
 				setTypeModal(null, "close");
 				queryClient.invalidateQueries(["collections"]);
+				queryClient.invalidateQueries(["decks"]);
 				toast.success("Colecao criada com sucesso");
 			},
 			onError: ({ response }) => {},

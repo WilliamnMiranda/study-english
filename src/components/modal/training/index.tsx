@@ -5,6 +5,7 @@ import decksServices from '../../../services/Decks';
 import * as C from './style'
 import EmptyImage from '../../../assets/empty.svg'
 import Loading from '../../loading';
+import { BeatLoader } from 'react-spinners';
 
 const Modal = () => {
   const { activeItem } = useContext(ModalContext);
@@ -12,7 +13,7 @@ const Modal = () => {
   return (
     <>
       {
-        loadingMutation ? <Loading /> : <C.ContainerTraining>
+        loadingMutation ? <BeatLoader color="#3da4da" size={25} /> : <C.ContainerTraining>
           <C.ContainerFront>
             <C.Label> Parte da da frente</C.Label>
             <C.ContainerResponseFront> <p>{currentItem?.front}</p> </C.ContainerResponseFront>
@@ -54,7 +55,7 @@ const ModalTraining = () => {
   const { data, isLoading } = useReviewDecks(activeItem as string)
 
   if (isLoading)
-    return <Loading />
+    return <C.ContainerLoading> <BeatLoader color="#3da4da" size={25} /> </C.ContainerLoading>
 
   return (
     data.length > 0 ? <Modal /> : <EmptyCards />

@@ -4,7 +4,7 @@ import iconShare from "../../../assets/share.svg";
 import iconEdit from "../../../assets/edit.svg";
 import { IInfos } from "../../../interfaces/collections_interface";
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineDelete } from "react-icons/ai";
 import 'react-circular-progressbar/dist/styles.css';
 import { useContext } from "react";
 import { ModalContext } from "../../../contexts/Modal_Context";

@@ -12,7 +12,7 @@ const ModalCreateDeck = () => {
         <C.Label>Digite o nome do seu deck</C.Label>
         <C.InputText onChange={(e) => setName(e.target.value)} />
       </C.ContainerInput>
-      <C.ButtonCreate onClick={() => createDeck(name, activeCollection)}> ADICIONAR </C.ButtonCreate>
+      <C.ButtonCreate onClick={() => createDeck(name, activeCollection!._id)}> ADICIONAR </C.ButtonCreate>
     </C.ContainerModalCollection>
   )
 }

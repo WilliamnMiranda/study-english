@@ -45,7 +45,8 @@ export const CollectionProvider = ({ children }: IProps) => {
   }
 
   useEffect(() => {
-    getInfo()
+    if (activeCollection)
+      getInfo()
   }, [activeCollection])
 
   useEffect(() => {

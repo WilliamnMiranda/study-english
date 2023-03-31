@@ -18,8 +18,6 @@ interface CollectionContextType {
   decks: IDecks[]
 }
 
-
-
 export const CollectionContext = createContext({} as CollectionContextType);
 export const CollectionProvider = ({ children }: IProps) => {
   const [collections, setCollection] = useState<ICollection[] | null>(null);
@@ -29,7 +27,6 @@ export const CollectionProvider = ({ children }: IProps) => {
   const { data, isLoading } = useQuery({
     queryKey: ['collections'],
     queryFn: () => collectionServices.getAll(),
-    enabled: !!authenticate
   })
 
   const { data: decks, isLoading: loadingDecsks, refetch } = useQuery(['decks', activeCollection], () =>

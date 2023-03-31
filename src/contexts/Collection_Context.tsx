@@ -4,6 +4,7 @@ import { UserContext } from "./User_Context";
 import collectionServices from "../services/Collection";
 import { ICollection, IInfos } from "../interfaces/collections_interface";
 import decksServices from "../services/Decks";
+import { IDecks } from "../interfaces/decks_interfaces";
 interface IProps {
   children: ReactNode;
 }
@@ -14,6 +15,7 @@ interface CollectionContextType {
   collections: ICollection[] | null,
   setActiveCollection: React.Dispatch<SetStateAction<ICollection | null>>,
   infoCollection: IInfos | null
+  decks: IDecks[]
 }
 
 
@@ -36,11 +38,11 @@ export const CollectionProvider = ({ children }: IProps) => {
       enabled: !!activeCollection
     }
   );
-
   const getInfo = async () => {
     if (activeCollection) {
       const data = await collectionServices.getInfo(activeCollection!._id)
       setInfoCollection(data)
+      refetch()
     }
   }
 
@@ -57,7 +59,7 @@ export const CollectionProvider = ({ children }: IProps) => {
   }, [data])
 
   return (
-    <CollectionContext.Provider value={{ collections, data, isLoading, activeCollection, setActiveCollection, infoCollection }}>
+    <CollectionContext.Provider value={{ collections, data, isLoading, activeCollection, setActiveCollection, infoCollection, decks }}>
       {children}
     </CollectionContext.Provider>
   );

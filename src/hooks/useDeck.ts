@@ -4,7 +4,6 @@ import { IDecks } from "../interfaces/decks_interfaces";
 import decksServices from "../services/Decks";
 
 const useDeck = () => {
-	const NumberOfCompletedcards = 0;
 	const queryClient = useQueryClient();
 	const verifyCompletedCards = (deck: IDecks) => {
 		const numberCompletedCards = deck.cards.reduce(

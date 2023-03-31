@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { ModalContext } from '../../../contexts/Modal_Context';
 import useReviewDecks from '../../../hooks/useIncompleteCards ';
-import decksServices from '../../../services/Decks';
 import * as C from './style'
 import EmptyImage from '../../../assets/empty.svg'
-import Loading from '../../loading';
 import { BeatLoader } from 'react-spinners';
 
 const Modal = () => {

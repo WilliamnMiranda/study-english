@@ -1,9 +1,7 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { IDecks } from '../../../../interfaces/decks_interfaces'
 import * as C from './style'
-import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
-import ProgressBar from '../../../../components/progress_bar';
-import { Container } from '../../../Login/style';
+import { AiOutlineCheck } from "react-icons/ai";
 import useDeck from '../../../../hooks/useDeck'
 import { AiOutlinePlusCircle, AiFillEdit, AiOutlineHeart, AiOutlinePlayCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { ModalContext } from '../../../../contexts/Modal_Context';

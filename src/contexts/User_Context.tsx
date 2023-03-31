@@ -1,6 +1,5 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
 import { IUser } from "../interfaces/user_interfaces";
-import userServices from "../services/User";
 
 interface IProps {
   children: ReactNode;

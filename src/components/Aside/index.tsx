@@ -1,4 +1,3 @@
-import React from 'react'
 import * as C from './style'
 import iconSvg from '../../assets/config.svg'
 import Collections from './Collections'

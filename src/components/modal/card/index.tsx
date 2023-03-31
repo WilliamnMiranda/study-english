@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { ModalContext } from '../../../contexts/Modal_Context'
 import useCard from '../../../hooks/useCard'
 import * as C from './style'

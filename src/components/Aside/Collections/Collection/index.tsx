@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import useCollection from "../../../../hooks/useCollection";
 import { ICollection } from "../../../../interfaces/collections_interface";
 import ProgressBar from "../../../progress_bar";

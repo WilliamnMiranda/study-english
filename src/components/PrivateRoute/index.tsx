@@ -1,16 +1,15 @@
-import React, { FunctionComponent, useContext, useEffect } from 'react'
-import { Navigate, useNavigate } from "react-router-dom";
+import { FunctionComponent, useContext, useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
 import userServices from '../../services/User';
 import Layout from '../layout';
 import { UserContext } from '../../contexts/User_Context';
-import Login from '../../pages/Login';
+
 
 interface IProps {
   element: FunctionComponent
 }
 const PrivateRoute = ({ element: Element }: IProps) => {
   const navigate = useNavigate();
-  const { authenticate } = useContext(UserContext)
   const authenticateUser = async () => {
     const token: any = localStorage.getItem('english-token')
 

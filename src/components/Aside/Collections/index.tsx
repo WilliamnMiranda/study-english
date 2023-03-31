@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import * as C from "./style";
 import { AiOutlineSearch, AiOutlinePlus } from "react-icons/ai";
 import Collection from "./Collection";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import collectionServices from "../../../services/Collection";
 import { ICollection } from "../../../interfaces/collections_interface";
 import { CollectionContext } from "../../../contexts/Collection_Context";
 import { ModalContext } from "../../../contexts/Modal_Context";
 const Collections = () => {
-  const { activeCollection, setActiveCollection, collections } = useContext(CollectionContext);
+  const { collections } = useContext(CollectionContext);
 
   const { setTypeModal } = useContext(ModalContext)
 

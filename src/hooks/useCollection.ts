@@ -11,8 +11,7 @@ import collectionServices from "../services/Collection";
 import { ModalContext } from "../contexts/Modal_Context";
 import { toast } from "react-toastify";
 const useCollection = () => {
-	const { activeCollection, setActiveCollection } =
-		useContext(CollectionContext);
+	const { activeCollection } = useContext(CollectionContext);
 	const { setTypeModal } = useContext(ModalContext);
 	const [error, setError] = useState("");
 	const queryClient = useQueryClient();

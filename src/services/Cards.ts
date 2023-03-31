@@ -1,5 +1,5 @@
 import { api } from "../helpers/api";
-import { ICard, ICreateCard } from "../interfaces/cards_interfaces";
+import { ICreateCard } from "../interfaces/cards_interfaces";
 
 const cardServices = {
 	create: async (data: ICreateCard) => {

@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createContext, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 import { UserContext } from "./User_Context";
 import collectionServices from "../services/Collection";
@@ -23,7 +23,6 @@ export const CollectionProvider = ({ children }: IProps) => {
   const [collections, setCollection] = useState<ICollection[] | null>(null);
   const [activeCollection, setActiveCollection] = useState<ICollection | null>(null)
   const [infoCollection, setInfoCollection] = useState<IInfos | null>(null)
-  const { authenticate } = useContext(UserContext)
   const { data, isLoading } = useQuery({
     queryKey: ['collections'],
     queryFn: () => collectionServices.getAll(),

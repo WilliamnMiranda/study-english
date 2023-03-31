@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { ModalContext } from '../../contexts/Modal_Context'
 import ModalCollection from './collection'
 import * as C from './style'
@@ -6,10 +6,6 @@ import { AiOutlineClose } from "react-icons/ai";
 import ModalCreateDeck from './deck';
 import ModalCard from './card';
 import ModalTraining from './training';
-
-interface IProps {
-  type: 'collection' | 'deck' | 'card'
-}
 
 const Modal = () => {
   const modalTypes: { [key: string]: any } = {

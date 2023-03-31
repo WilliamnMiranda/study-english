@@ -1,12 +1,8 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { CollectionContext } from "../../contexts/Collection_Context";
-import { IInfos } from "../../interfaces/collections_interface";
 import { BeatLoader } from "react-spinners";
 import { ModalContext } from "../../contexts/Modal_Context";
 //default imports
-import collectionServices from "../../services/Collection";
-import decksServices from "../../services/Decks";
 import Decks from "./Decks";
 import HeaderHome from "./HeaderHome";
 import Collections from '../../assets/collections.svg'

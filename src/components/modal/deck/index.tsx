@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import * as C from './style'
 import useDeck from '../../../hooks/useDeck'
 import { CollectionContext } from '../../../contexts/Collection_Context'

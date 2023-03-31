@@ -1,8 +1,5 @@
-import { useMutation } from '@tanstack/react-query'
-import React, { useRef, useState } from 'react'
+import { useState } from 'react'
 import useCollection from '../../../hooks/useCollection'
-import { ICreateCollection } from '../../../interfaces/collections_interface'
-import collectionServices from '../../../services/Collection'
 import * as C from './style'
 const ModalCollection = () => {
   const [name, setName] = useState('')

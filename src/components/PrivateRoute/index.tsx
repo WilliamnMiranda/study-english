@@ -25,9 +25,9 @@ const PrivateRoute = ({ element: Element }: IProps) => {
     authenticateUser()
   }, [])
   return (
-    authenticate ? <Layout>
+    <Layout>
       <Element />
-    </Layout> : <Login />
+    </Layout>
   )
 }
 

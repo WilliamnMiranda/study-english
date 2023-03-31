@@ -25,24 +25,20 @@ const EmptyCards = () => {
 
 
 const Home = () => {
-  const { activeCollection, isLoading } = useContext(CollectionContext);
+  const { activeCollection, isLoading, decks } = useContext(CollectionContext);
   const { modal } = useContext(ModalContext)
 
-  if (isLoading) return <div> carregando </div>
+  if (isLoading) return <BeatLoader color="#36d7b7" />
 
   return (
     <>
       {modal.isOpen && <Modal />}
-      {
-        isLoading ? <EmptyCards /> : <>
-          {
-            <div>
-              <HeaderHome />
-              <Decks />
-            </div>
-          }
-        </>
-      }
+      {isLoading ? <BeatLoader color="#36d7b7" /> : (
+        <div>
+          <HeaderHome />
+          <Decks />
+        </div>
+      )}
     </>
   );
 };

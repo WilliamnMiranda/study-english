@@ -14,7 +14,7 @@ import { CollectionContext } from "../../../contexts/Collection_Context";
 const HeaderHome = () => {
   const { infoCollection } = useContext(CollectionContext)
   const { setTypeModal } = useContext(ModalContext)
-  const percentage = infoCollection?.completedCards ? infoCollection?.totalTasksInCards ? Math.floor(infoCollection?.completedCards / infoCollection?.totalTasksInCards * 100) : 0 : 0
+  const percentage = infoCollection?.completedCards ? infoCollection?.totalTasksInCards ? Math.floor(infoCollection?.completedCards / infoCollection?.totalTasksInCards * 100) : 0 : 100
   return (
     <C.ContainerHeaderInfo>
       <C.ContainerInfos>

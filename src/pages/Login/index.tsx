@@ -9,7 +9,6 @@ const Login = () => {
   const email = useRef("");
   const password = useRef("");
   const navigate = useNavigate();
-  const { authenticate } = useContext(UserContext)
   const handleSubmit = async () => await userServices.login({
     email: email.current,
     password: password.current,

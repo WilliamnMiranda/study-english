@@ -1,13 +1,15 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import userServices from "../../services/User";
 import * as C from "./style";
 import { redirect, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { UserContext } from "../../contexts/User_Context";
 const Login = () => {
   const email = useRef("");
   const password = useRef("");
   const navigate = useNavigate();
+  const { authenticate } = useContext(UserContext)
   const handleSubmit = async () => await userServices.login({
     email: email.current,
     password: password.current,

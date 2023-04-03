@@ -23,9 +23,11 @@ export const CollectionProvider = ({ children }: IProps) => {
   const [collections, setCollection] = useState<ICollection[] | null>(null);
   const [activeCollection, setActiveCollection] = useState<ICollection | null>(null)
   const [infoCollection, setInfoCollection] = useState<IInfos | null>(null)
+  const { authenticate } = useContext(UserContext)
   const { data, isLoading } = useQuery({
     queryKey: ['collections'],
     queryFn: () => collectionServices.getAll(),
+    enabled: authenticate
   })
 
   const { data: decks, isLoading: loadingDecsks, refetch } = useQuery(['decks', activeCollection], () =>

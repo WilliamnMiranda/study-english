@@ -10,6 +10,7 @@ interface IProps {
 }
 const PrivateRoute = ({ element: Element }: IProps) => {
   const navigate = useNavigate();
+  const { setAuthenticate } = useContext(UserContext)
   const authenticateUser = async () => {
     const token: any = localStorage.getItem('english-token')
 
@@ -18,6 +19,8 @@ const PrivateRoute = ({ element: Element }: IProps) => {
     const userAccount = await userServices.auth(token)
 
     if (!userAccount) return navigate('/login')
+
+    setAuthenticate(true)
   }
 
   useEffect(() => {
